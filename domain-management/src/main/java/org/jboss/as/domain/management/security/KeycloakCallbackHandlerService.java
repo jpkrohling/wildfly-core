@@ -41,7 +41,8 @@ import org.jboss.msc.service.StartException;
 import org.jboss.msc.service.StopContext;
 
 /**
- *
+ * Simple CallbackHandlerService that specifies Keycloak as the preferred
+ * authentication mechanism.
  *
  * @author Stan Silvert ssilvert@redhat.com (C) 2014 Red Hat Inc.
  */
@@ -57,7 +58,6 @@ class KeycloakCallbackHandlerService implements Service<CallbackHandlerService>,
      */
     @Override
     public AuthMechanism getPreferredMechanism() {
-        System.out.println(">>>>>> KeycloakCallbackHandlerService.getPreferredMechanism called");
         return AuthMechanism.KEYCLOAK;
     }
 
@@ -68,7 +68,6 @@ class KeycloakCallbackHandlerService implements Service<CallbackHandlerService>,
 
     @Override
     public Map<String, String> getConfigurationOptions() {
-        System.out.println(">>>>>> KeycloakCallbackHandlerService.getConfigurationOptions called");
         return Collections.emptyMap();
     }
 
@@ -79,7 +78,6 @@ class KeycloakCallbackHandlerService implements Service<CallbackHandlerService>,
 
     @Override
     public CallbackHandler getCallbackHandler(Map<String, Object> sharedState) {
-        System.out.println(">>>>>> KeycloakCallbackHandlerService.getCallbackHandler called");
         return new KeycloakCallbackHander(sharedState);
     }
 
@@ -93,7 +91,6 @@ class KeycloakCallbackHandlerService implements Service<CallbackHandlerService>,
     }
 
     public void start(StartContext context) throws StartException {
-        System.out.println(">>>>>> Keycloak service started");
     }
 
     public void stop(StopContext context) {
@@ -109,7 +106,6 @@ class KeycloakCallbackHandlerService implements Service<CallbackHandlerService>,
 
         private KeycloakCallbackHander(final Map<String, Object> sharedState) {
             this.sharedState = sharedState;
-            System.out.println(">>>>>> KeycloakCallbackHandler shared state=" + sharedState);
         }
 
         /**
@@ -117,7 +113,6 @@ class KeycloakCallbackHandlerService implements Service<CallbackHandlerService>,
          */
         @Override
         public void handle(Callback[] callbacks) throws IOException, UnsupportedCallbackException {
-            System.out.println(">>>>>> KeycloakCallbackHander.handle() callbacks=" + callbacks);
         }
     }
 

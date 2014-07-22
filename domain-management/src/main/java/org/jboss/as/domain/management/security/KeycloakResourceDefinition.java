@@ -27,6 +27,7 @@ import org.jboss.as.controller.descriptions.common.ControllerResolver;
 import org.jboss.as.controller.registry.OperationEntry;
 
 /**
+ * Resource definition for Keycloak.
  *
  * @author Stan Silvert ssilvert@redhat.com (C) 2014 Red Hat Inc.
  */

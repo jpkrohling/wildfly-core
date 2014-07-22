@@ -3879,6 +3879,10 @@ public class ManagementXml {
             writer.writeEndElement();
         }
 
+        if (authentication.has(KEYCLOAK)) {
+            writer.writeEmptyElement(Element.KEYCLOAK.getLocalName());
+        }
+
         if (authentication.hasDefined(JAAS)) {
             ModelNode jaas = authentication.get(JAAS);
             writer.writeStartElement(Element.JAAS.getLocalName());
