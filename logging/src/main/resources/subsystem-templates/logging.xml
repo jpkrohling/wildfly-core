@@ -50,6 +50,11 @@
            <logger category="sun.rmi">
                <level name="WARN"/>
            </logger>
+
+           <!-- WFLY-10919 - Upstream deems this as appropriate, but this seems to be too verbose for WildFly -->
+           <logger category="io.jaegertracing.Configuration">
+               <level name="INFO"/>
+           </logger>
        </replacement>
    </supplement>
    <supplement name="minimal">
